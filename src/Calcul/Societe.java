@@ -10,7 +10,6 @@ public class Societe {
     private List<Livreur> livreurs;
     private int commandesLivrees;
     private Position depot;
-    
 
     public Societe(String nomSociete, int idSociete, Position depot) {
         this.nomSociete = nomSociete;
@@ -61,12 +60,12 @@ public class Societe {
     }
 
     public Position getDepot() {
-		return depot;
-	}
+        return depot;
+    }
 
-	@Override
+    @Override
     public String toString() {
         return nomSociete + " (ID: " + idSociete + ") - Livreurs: " + livreurs.size()
-             + ", Commandes livrées: " + commandesLivrees;
+                + ", Commandes livrées: " + commandesLivrees;
     }
 }

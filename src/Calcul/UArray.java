@@ -3,6 +3,7 @@ package Calcul;
 import java.util.Arrays;
 
 public class UArray<T> {
+
     private Object[] elements;
     private int size;
 
@@ -72,4 +73,3 @@ public class UArray<T> {
         return sb.toString();
     }
 }
-

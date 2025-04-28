@@ -17,7 +17,7 @@ public class Parametres {
         this.nbDepot = nbDepot;
         this.modeCombat = modeCombat;
 
-        // Dimensions par défaut
+        // Dimensions par dï¿½faut
         this.tailleCarteX = 10;
         this.tailleCarteY = 10;
     }
@@ -73,10 +73,10 @@ public class Parametres {
 
     @Override
     public String toString() {
-        return "Paramètres [nbLivreur=" + nbLivreur +
-               ", nbRival=" + nbRival +
-               ", nbDepot=" + nbDepot +
-               ", tailleCarte=" + tailleCarteX + "x" + tailleCarteY +
-               ", modeCombat=" + (modeCombat != null ? modeCombat.getNomCombat() : "null") + "]";
+        return "Paramï¿½tres [nbLivreur=" + nbLivreur
+                + ", nbRival=" + nbRival
+                + ", nbDepot=" + nbDepot
+                + ", tailleCarte=" + tailleCarteX + "x" + tailleCarteY
+                + ", modeCombat=" + (modeCombat != null ? modeCombat.getNomCombat() : "null") + "]";
     }
 }

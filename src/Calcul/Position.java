@@ -1,6 +1,7 @@
 package Calcul;
 
 public class Position {
+
     private int x;
     private int y;
 
@@ -27,7 +28,6 @@ public class Position {
         this.y = y;
     }
 
-    
     @Override
     public String toString() {
         return "(" + x + "," + y + ")";

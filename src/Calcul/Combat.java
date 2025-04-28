@@ -15,7 +15,7 @@ public class Combat {
 
     public Combat(int idCombat, String nomCombat, Livreur livreur1, Livreur livreur2, String typeCombat) {
         if (livreur1.getMaSociete().getIdSociete() == livreur2.getMaSociete().getIdSociete()) {
-            throw new IllegalArgumentException("Les deux livreurs ne peuvent pas appartenir à la même société.");
+            throw new IllegalArgumentException("Les deux livreurs ne peuvent pas appartenir ï¿½ la mï¿½me sociï¿½tï¿½.");
         }
 
         this.idCombat = idCombat;
@@ -40,7 +40,7 @@ public class Combat {
     }
 
     public String demarrerCombat() {
-        System.out.println("Début du combat entre " + livreur1.getNomLivreur() + " et " + livreur2.getNomLivreur());
+        System.out.println("Dï¿½but du combat entre " + livreur1.getNomLivreur() + " et " + livreur2.getNomLivreur());
 
         switch (typeCombat) {
             case "PierreFeuilleCiseaux":
@@ -68,12 +68,12 @@ public class Combat {
         if (victoireL1) {
             victoire1++;
             livreur2.perdreCommande();
-            livreur1.prendreCommande("Commande gagnée sur " + traduction(choix1));
+            livreur1.prendreCommande("Commande gagnï¿½e sur " + traduction(choix1));
             return livreur1.getNomLivreur() + " gagne avec " + traduction(choix1) + " contre " + traduction(choix2);
         } else {
             victoire2++;
             livreur1.perdreCommande();
-            livreur2.prendreCommande("Commande gagnée sur " + traduction(choix2));
+            livreur2.prendreCommande("Commande gagnï¿½e sur " + traduction(choix2));
             return livreur2.getNomLivreur() + " gagne avec " + traduction(choix2) + " contre " + traduction(choix1);
         }
     }
@@ -100,24 +100,28 @@ public class Combat {
         if (des1 > des2) {
             victoire1++;
             livreur2.perdreCommande();
-            livreur1.prendreCommande("Dé " + des1);
+            livreur1.prendreCommande("Dï¿½ " + des1);
             return livreur1.getNomLivreur() + " gagne avec " + des1 + " contre " + des2;
         } else if (des2 > des1) {
             victoire2++;
             livreur1.perdreCommande();
-            livreur2.prendreCommande("Dé " + des2);
+            livreur2.prendreCommande("Dï¿½ " + des2);
             return livreur2.getNomLivreur() + " gagne avec " + des2 + " contre " + des1;
         } else {
-            return "Égalité parfaite au lancer de dés.";
+            return "ï¿½galitï¿½ parfaite au lancer de dï¿½s.";
         }
     }
 
     private String traduction(int val) {
         return switch (val) {
-            case 1 -> "Pierre";
-            case 2 -> "Feuille";
-            case 3 -> "Ciseaux";
-            default -> "?";
+            case 1 ->
+                "Pierre";
+            case 2 ->
+                "Feuille";
+            case 3 ->
+                "Ciseaux";
+            default ->
+                "?";
         };
     }
 }
