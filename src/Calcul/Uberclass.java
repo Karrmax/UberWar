@@ -50,7 +50,7 @@ public class Uberclass extends Thread{
         Livreur livreur21 = new Livreur("Valentin", 202, societe2, LM);
         societe2.ajouterLivreur(livreur21);
         
-        Livreur livreur22 = new Livreur("Grançois", 203, societe2, LM);
+        Livreur livreur22 = new Livreur("François", 203, societe2, LM);
         societe2.ajouterLivreur(livreur22);
 		
         this.dessin = dessin;

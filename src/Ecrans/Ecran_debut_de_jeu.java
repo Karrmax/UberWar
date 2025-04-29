@@ -10,7 +10,9 @@ public class Ecran_debut_de_jeu extends JPanel {
 
 	/**
 	 * Create the panel.
+	 * 
 	 */
+	
 	public Ecran_debut_de_jeu(Fenetre fenetre) {
 		
 		this.fenetre=fenetre;
