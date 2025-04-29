@@ -1,11 +1,8 @@
 package Calcul;
 
+import java.awt.Graphics;
 import java.io.BufferedReader;
 import java.io.FileReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.awt.Graphics;
 public class Carte {
 
     public enum TypeCase {
@@ -22,11 +19,7 @@ public class Carte {
 
         TypeCase(char symbole) {
             this.symbole = symbole;
-            if (this.symbole == 'R') {
-                peutMarcher = true;
-            } else {
-                peutMarcher = false;
-            }
+            peutMarcher = this.symbole == 'R';
 
             switch(symbole) {
                 case 'R':
@@ -39,7 +32,7 @@ public class Carte {
                     this.imageName = "Batiment";
                     break;
                 case'D':
-                    this.imageName = "depot";
+                    this.imageName = "Depot";
                     break;
                 case 'L':
                     this.imageName = "Batiment";
@@ -64,14 +57,14 @@ public class Carte {
         }
     }
 
-    private int lignes;
-    private int colonnes;
+    private final int lignes;
+    private final int colonnes;
     private TypeCase[][] grille;
-    private loadManager LM;
+    private LoadManager LM;
     int size;
 
 
-    public Carte(int colonnes, int lignes, loadManager LM, int size) {
+    public Carte(int colonnes, int lignes, LoadManager LM, int size) {
         this.LM = LM;
         this.lignes = lignes;
         this.colonnes = colonnes;
@@ -111,8 +104,8 @@ public class Carte {
             String[] numbers = line.split(" ");
             for (int col = 0; col < numbers.length; col++) {
                 char num = numbers[col].charAt(0);
-                System.err.println(num == 'R');
-                System.err.println(grille);
+                // System.err.println(num == 'R');
+                // System.err.println(grille);
                 // this.grille[col][row] = TypeCase.ROUTE;
                 // System.err.println(this.grille[col][row]);
                 switch (num) {
@@ -148,7 +141,7 @@ public class Carte {
 
 
     public void drawMap(Graphics g) {
-        afficherCarteConsole();
+        // afficherCarteConsole();
         // System.out.println("zzzzzzzzzzzzzzzzzzz");
         // System.out.println(LM.images.get("E:\\perso\\PIERRE\\projet java\\Projet JAVA interfaces graphiques aidé par A.Gagneux-20250428T080133Z-001\\Projet JAVA interfaces graphiques aidé par A.Gagneux\\src\\Resources\\mur.png"));
         for (int i = 0; i < this.lignes; i++) {

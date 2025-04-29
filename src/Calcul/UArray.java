@@ -1,9 +1,8 @@
-package Calcul;
+/*package Calcul;
 
 import java.util.Arrays;
 
 public class UArray<T> {
-
     private Object[] elements;
     private int size;
 
@@ -72,4 +71,4 @@ public class UArray<T> {
         sb.append("]");
         return sb.toString();
     }
-}
+}*/

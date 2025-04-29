@@ -37,7 +37,7 @@ public class Score {
         String nom1 = combat.getLivreur1().getNomLivreur();
         String nom2 = combat.getLivreur2().getNomLivreur();
 
-        // Sï¿½lection du gagnant selon le texte retournï¿½
+        // Sélection du gagnant selon le texte retourné
         if (resultat.contains(nom1)) {
             gagnant = combat.getLivreur1();
         } else if (resultat.contains(nom2)) {
@@ -45,7 +45,7 @@ public class Score {
         }
 
         if (gagnant == null) {
-            return resultat + "\nï¿½galitï¿½ dï¿½tectï¿½e, aucun point attribuï¿½.";
+            return resultat + "\nÉgalité détectée, aucun point attribué.";
         }
 
         if (gagnant.getMaSociete().getIdSociete() == 1) {
@@ -54,7 +54,7 @@ public class Score {
             ajouterPointSociete2(10);
         }
 
-        return resultat + "\nPoint attribuï¿½ ï¿½ : " + gagnant.getMaSociete().getNomSociete();
+        return resultat + "\nPoint attribué à : " + gagnant.getMaSociete().getNomSociete();
     }
 
     public String getGagnant(String nom1, String nom2) {
@@ -63,13 +63,13 @@ public class Score {
         } else if (pointsSociete2 > pointsSociete1) {
             return nom2 + " gagne avec " + pointsSociete2 + " points !";
         } else {
-            return "ï¿½galitï¿½ parfaite entre les deux sociï¿½tï¿½s !";
+            return "Égalité parfaite entre les deux sociétés !";
         }
     }
 
     @Override
     public String toString() {
         return "Score : " + pointsSociete1 + " pts pour Societe1 | "
-                + pointsSociete2 + " pts pour Societe2";
+             + pointsSociete2 + " pts pour Societe2";
     }
 }

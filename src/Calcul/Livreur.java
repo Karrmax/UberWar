@@ -1,5 +1,4 @@
 package Calcul;
-
 import java.awt.*;
 
 public class Livreur {
@@ -7,13 +6,13 @@ public class Livreur {
     private String nomLivreur;
     private int idLivreur;
     private Societe maSociete;
-    private String commande; // Texte repr�sentant la commande actuelle
+    private String commande; // Texte représentant la commande actuelle
     private Position position;
     private char symbole; // Pour affichage si besoin (ex: 'A', 'M', etc.)
-    private Position cible;
-    private loadManager LM;
+    private final Position cible;
+    private final LoadManager LM;
 
-    public Livreur(String nomLivreur, int idLivreur, Societe maSociete, loadManager LM) {
+    public Livreur(String nomLivreur, int idLivreur, Societe maSociete, LoadManager LM) {
         this.LM = LM;
         this.nomLivreur = nomLivreur;
         this.idLivreur = idLivreur;
@@ -21,11 +20,12 @@ public class Livreur {
         this.commande = null;
         this.symbole = nomLivreur.charAt(0); // Prend la 1ère lettre du nom
         this.position = new Position(maSociete.getDepot().getX(), maSociete.getDepot().getY()); // Position par défaut
-        this.cible = new Position(25, 25); // Position par défaut
-
+        this.cible = new Position(25,25); // Position par défaut
+        
     }
 
     // === Getrs et setters ===
+
     public String getNomLivreur() {
         return nomLivreur;
     }
@@ -63,7 +63,7 @@ public class Livreur {
     }
 
     public void perdreCommande() {
-        System.out.println(nomLivreur + " perd sa commande et retourne � son d�p�t !");
+        System.out.println(nomLivreur + " perd sa commande et retourne à son dépot !");
         this.commande = null;
     }
 
@@ -87,23 +87,19 @@ public class Livreur {
     public void setSymbole(char symbole) {
         this.symbole = symbole;
     }
-
     public void draw(Graphics g) {
-        g.drawImage(LM.images.get("livreur"), LM.size, LM.size, null);
+        g.drawImage(LM.images.get("Livreur"), LM.size, LM.size, null);
     }
 
     @Override
     public String toString() {
-        return nomLivreur + " [ID: " + idLivreur + ", Societe: " + maSociete.getNomSociete()
-                + ", Pos: " + position + ", Cmd: " + (commande != null ? commande : "aucune") + "]";
+        return nomLivreur + " [ID: " + idLivreur + ", Societe: " + maSociete.getNomSociete() +
+               ", Pos: " + position + ", Cmd: " + (commande != null ? commande : "aucune") + "]";
     }
-    // === Déplacement intelligent (si utile plus tard) ===
-
+ // === Déplacement intelligent (si utile plus tard) ===
     public void deplacerVers() {
-        if (position.getX() < cible.getX()) {
-            position.setX(position.getX() + 1);
-        };
-        /*  else if (x > cibleX) x--;
+        if (position.getX() < cible.getX()) position.setX(position.getX()+1);
+      /*  else if (x > cibleX) x--;
         if (y < cibleY) y++;
         else if (y > cibleY) y--;*/
     }

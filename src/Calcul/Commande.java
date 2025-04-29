@@ -1,7 +1,6 @@
 package Calcul;
 
 public class Commande {
-
     public enum EtatCommande {
         EN_ATTENTE, EN_COURS, LIVREE
     }
@@ -9,10 +8,11 @@ public class Commande {
     private static int compteur = 0;
 
     private final int id;
-    private int xDepot, yDepot;
-    private int xClient, yClient;
+    private final int xDepot;
+    private final int yDepot;
+    private final int xClient, yClient;
     private EtatCommande etat;
-    private int valeur;
+    private final int valeur;
 
     public Commande(int xDepot, int yDepot, int xClient, int yClient, int valeur) {
         this.id = ++compteur;
@@ -58,8 +58,8 @@ public class Commande {
 
     @Override
     public String toString() {
-        return "Commande #" + id + " (" + etat + ") de ["
-                + xDepot + "," + yDepot + "] vers ["
-                + xClient + "," + yClient + "] - Valeur: " + valeur;
+        return "Commande #" + id + " (" + etat + ") de [" +
+               xDepot + "," + yDepot + "] vers [" +
+               xClient + "," + yClient + "] - Valeur: " + valeur;
     }
 }

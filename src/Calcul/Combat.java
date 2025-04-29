@@ -15,7 +15,7 @@ public class Combat {
 
     public Combat(int idCombat, String nomCombat, Livreur livreur1, Livreur livreur2, String typeCombat) {
         if (livreur1.getMaSociete().getIdSociete() == livreur2.getMaSociete().getIdSociete()) {
-            throw new IllegalArgumentException("Les deux livreurs ne peuvent pas appartenir � la m�me soci�t�.");
+            throw new IllegalArgumentException("Les deux livreurs ne peuvent pas appartenir à la même société.");
         }
 
         this.idCombat = idCombat;
@@ -40,18 +40,14 @@ public class Combat {
     }
 
     public String demarrerCombat() {
-        System.out.println("D�but du combat entre " + livreur1.getNomLivreur() + " et " + livreur2.getNomLivreur());
+        System.out.println("Début du combat entre " + livreur1.getNomLivreur() + " et " + livreur2.getNomLivreur());
 
-        switch (typeCombat) {
-            case "PierreFeuilleCiseaux":
-                return pierreFeuilleCiseaux();
-            case "PileOuFace":
-                return pileOuFace();
-            case "LanceDeDes":
-                return lanceDeDes();
-            default:
-                return "Type de combat inconnu.";
-        }
+        return switch (typeCombat) {
+            case "PierreFeuilleCiseaux" -> pierreFeuilleCiseaux();
+            case "PileOuFace" -> pileOuFace();
+            case "LanceDeDes" -> lanceDeDes();
+            default -> "Type de combat inconnu.";
+        };
     }
 
     private String pierreFeuilleCiseaux() {
@@ -68,12 +64,12 @@ public class Combat {
         if (victoireL1) {
             victoire1++;
             livreur2.perdreCommande();
-            livreur1.prendreCommande("Commande gagn�e sur " + traduction(choix1));
+            livreur1.prendreCommande("Commande gagnée sur " + traduction(choix1));
             return livreur1.getNomLivreur() + " gagne avec " + traduction(choix1) + " contre " + traduction(choix2);
         } else {
             victoire2++;
             livreur1.perdreCommande();
-            livreur2.prendreCommande("Commande gagn�e sur " + traduction(choix2));
+            livreur2.prendreCommande("Commande gagnée sur " + traduction(choix2));
             return livreur2.getNomLivreur() + " gagne avec " + traduction(choix2) + " contre " + traduction(choix1);
         }
     }
@@ -100,28 +96,24 @@ public class Combat {
         if (des1 > des2) {
             victoire1++;
             livreur2.perdreCommande();
-            livreur1.prendreCommande("D� " + des1);
+            livreur1.prendreCommande("De " + des1);
             return livreur1.getNomLivreur() + " gagne avec " + des1 + " contre " + des2;
         } else if (des2 > des1) {
             victoire2++;
             livreur1.perdreCommande();
-            livreur2.prendreCommande("D� " + des2);
+            livreur2.prendreCommande("De " + des2);
             return livreur2.getNomLivreur() + " gagne avec " + des2 + " contre " + des1;
         } else {
-            return "�galit� parfaite au lancer de d�s.";
+            return "égalite parfaite au lancer de des.";
         }
     }
 
     private String traduction(int val) {
         return switch (val) {
-            case 1 ->
-                "Pierre";
-            case 2 ->
-                "Feuille";
-            case 3 ->
-                "Ciseaux";
-            default ->
-                "?";
+            case 1 -> "Pierre";
+            case 2 -> "Feuille";
+            case 3 -> "Ciseaux";
+            default -> "?";
         };
     }
 }
