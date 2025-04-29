@@ -15,7 +15,7 @@ public class Combat {
 
     public Combat(int idCombat, String nomCombat, Livreur livreur1, Livreur livreur2, String typeCombat) {
         if (livreur1.getMaSociete().getIdSociete() == livreur2.getMaSociete().getIdSociete()) {
-            throw new IllegalArgumentException("Les deux livreurs ne peuvent pas appartenir à la même société.");
+            throw new IllegalArgumentException("Les deux livreurs ne peuvent pas appartenir à la même société.  dzqqqqqqqqqqqqqqqqqqqqqqqqqqqqq");
         }
 
         this.idCombat = idCombat;
